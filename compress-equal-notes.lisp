@@ -17,21 +17,21 @@
 ;;;   'vector-lengths → repetition counts normalized to floats in [0,1]
 ;;;
 ;;; Function:
-;;;   (compress-notes notes &key mode)
+;;;   (compress-equal-notes notes &key mode)
 ;;;
 ;;; Usage Examples:
 ;;;   (setq my-notes '(a3 a3 a3 c4 b2 b2 eb3 eb3 eb3 eb3 g5))
 ;;;
 ;;;   ;; Notes only
-;;;   (compress-notes my-notes :mode 'notes)
+;;;   (compress-equal-notes my-notes :mode 'notes)
 ;;;   ;; → (a3 c4 b2 eb3 g5)
 ;;;
 ;;;   ;; Lengths only
-;;;   (compress-notes my-notes :mode 'lengths)
+;;;   (compress-equal-notes my-notes :mode 'lengths)
 ;;;   ;; → (3 1 2 4 1)
 ;;;
 ;;;   ;; Normalized vector lengths
-;;;   (compress-notes my-notes :mode 'vector-lengths)
+;;;   (compress-equal-notes my-notes :mode 'vector-lengths)
 ;;;   ;; → (0.75 0.25 0.5 1.0 0.25)
 ;;; ----------------+----------------------------+------------------------------------------------
 
@@ -40,13 +40,13 @@
 ;;; ----------------+----------------------------+------------------------------------------------
 ;;; Mode            | Behaviour                  | Example Input → Output
 ;;; ----------------+----------------------------+------------------------------------------------
-;;; 'notes          | Return pitch list only     | (compress-notes my-notes :mode 'notes)
+;;; 'notes          | Return pitch list only     | (compress-equal-notes my-notes :mode 'notes)
 ;;;                 |                            | → (a3 c4 b2 eb3 g5)
 ;;;
-;;; 'lengths        | Return repetition counts   | (compress-notes my-notes :mode 'lengths)
+;;; 'lengths        | Return repetition counts   | (compress-equal-notes my-notes :mode 'lengths)
 ;;;                 |                            | → (3 1 2 4 1)
 ;;;
-;;; 'vector-lengths | Return normalized floats   | (compress-notes my-notes :mode 'vector-lengths)
+;;; 'vector-lengths | Return normalized floats   | (compress-equal-notes my-notes :mode 'vector-lengths)
 ;;;                 | (scaled to max = 1.0)      | → (0.75 0.25 0.5 1.0 0.25)
 ;;; ----------------+----------------------------+------------------------------------------------
 
@@ -76,5 +76,6 @@
         ('vector-lengths  (let ((maxval (apply #'max result-lengths)))
                     (mapcar (lambda (x) (/ (float x) maxval))
                             result-lengths)))))))
+
 
 
