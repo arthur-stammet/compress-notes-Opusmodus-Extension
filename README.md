@@ -20,7 +20,7 @@ Depending on the `mode` keyword, you can extract only notes, only lengths, or no
 ## ⚙️ Function
 
 ```lisp
-(compress-notes notes &key mode)
+(compress-equal-notes notes &key mode)
 ```
 
 # Modes
@@ -34,15 +34,15 @@ Depending on the `mode` keyword, you can extract only notes, only lengths, or no
 (setq my-notes '(a3 a3 a3 c4 b2 b2 eb3 eb3 eb3 eb3 g5))
 
 ;; Notes only
-(compress-notes my-notes :mode 'notes)
+(compress-equal-notes my-notes :mode 'notes)
 ;; → (a3 c4 b2 eb3 g5)
 
 ;; Lengths only
-(compress-notes my-notes :mode 'lengths)
+(compress-equal-notes my-notes :mode 'lengths)
 ;; → (3 1 2 4 1)
 
 ;; Normalized vector lengths
-(compress-notes my-notes :mode 'vector-lengths)
+(compress-equal-notes my-notes :mode 'vector-lengths)
 ;; → (0.75 0.25 0.5 1.0 0.25)
 ```
 
