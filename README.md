@@ -1,4 +1,4 @@
-# Compress Notes Extension
+# Compress Equal Notes Extension
 
 Author: **Arthur Stammet**  
 Created: November 2025  
@@ -7,7 +7,7 @@ Location: `~/Opusmodus/User Source/Extensions/`
 ---
 
 ## 📖 Overview
-The **Compress Notes Extension** performs run‑length encoding on a list of notes.  
+The **Compress Equal Notes Extension** performs run‑length encoding on a list of notes.  
 It reduces consecutive identical notes into two parallel lists:
 
 - **Notes list** → the sequence of changing pitches  
